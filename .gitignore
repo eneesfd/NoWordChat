@@ -1,0 +1,31 @@
+# C++ specific
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Visual Studio Code specific
+.vscode/
+*.code-workspace
+
+# CMake specific
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+CMakeSettings.json
+CMakeTools.json
+CMakeUserPresets.json
+cmake_install.cmake
+compile_commands.json
+Makefile
+Makefile2
+Testing/
+CTestTestfile.cmake
+CTestTestfile.cmake.tmp
+
+# Build tools
+build/
+bin/
+lib/
