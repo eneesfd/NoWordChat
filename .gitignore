@@ -29,3 +29,4 @@ CTestTestfile.cmake.tmp
 build/
 bin/
 lib/
+/.vs
