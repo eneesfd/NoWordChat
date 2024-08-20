@@ -1,3 +1,68 @@
-<h1>Hello Drogon!</h1>
+<!DOCTYPE html>
+<html>
 
-<p>It's a simple web application using Drogon.</p>
+<head>
+  <title>Basit Chat Uygulaması</title>
+  <style>
+    #chat-container {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .message {
+      margin-bottom: 5px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .user-message {
+      background-color: #e0f7fa;
+      /* Açık mavi */
+      text-align: right;
+    }
+
+    .other-message {
+      background-color: #f1f8e9;
+      /* Açık yeşil */
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="chat-container">
+  </div>
+
+  <input type="text" id="message-input" placeholder="Mesajınızı yazın...">
+  <button id="send-button">Gönder</button>
+
+  <script>
+    const chatContainer = document.getElementById('chat-container');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+
+    sendButton.addEventListener('click', () => {
+      const message = messageInput.value;
+      if (message.trim() !== '') {
+        addMessage(message, 'user'); // Kullanıcının kendi mesajı
+        messageInput.value = '';
+        // Simüle edilmiş diğer kullanıcı mesajı (gerçek uygulamada Drogon'dan alınmalı)
+        setTimeout(() => {
+          addMessage("Merhaba, ben de buradayım!", 'other');
+        }, 1000); // 1 saniye sonra mesajı ekle
+      }
+    });
+
+    function addMessage(message, sender) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', sender + '-message');
+      messageElement.textContent = message;
+      chatContainer.appendChild(messageElement);
+      chatContainer.scrollTop = chatContainer.scrollHeight; // En alta kaydır
+    }
+  </script>
+</body>
+
+</html>
