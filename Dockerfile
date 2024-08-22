@@ -43,3 +43,6 @@ EXPOSE 8080
 
 # Set the working directory
 WORKDIR /home/engineer
+
+# Copy the current directory contents into the container at /home/engineer
+COPY . /home/engineer
