@@ -43,3 +43,5 @@ EXPOSE 8080
 
 # Set the working directory
 WORKDIR /home/engineer
+
+COPY . .
