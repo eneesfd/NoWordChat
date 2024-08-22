@@ -1,5 +1,8 @@
 {
-  "http": {
-    "document_root": "../ui/index.html"
+  "app": {
+    "document_root": "/home/engineer/Projects/NoWordChat/ui/",
+    "static_files": "/home/engineer/Projects/NoWordChat/ui",
+    "default_page": "index.html",
+    "default_page_path": "/home/engineer/Projects/NoWordChat/ui/index.html"
   }
 }

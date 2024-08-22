@@ -14,8 +14,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
 # Add the source files
 add_library(BidirectionalMessenger STATIC
-    src/server.cpp
-    src/client.cpp
+    src/Server.cpp
+    src/Client.cpp
 )
 
 # Link Boost libraries

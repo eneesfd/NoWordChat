@@ -1,5 +1,5 @@
-#ifndef CLIENT_HPP
-#define CLIENT_HPP
+#ifndef LIBS_BIDIRECTIONALMESSENGER_INC_CLIENT
+#define LIBS_BIDIRECTIONALMESSENGER_INC_CLIENT
 
 #include <boost/asio.hpp>
 #include <iostream>
@@ -20,4 +20,4 @@ class Client {
     std::string received_message_;
 };
 
-#endif  // CLIENT_HPP
+#endif // LIBS_BIDIRECTIONALMESSENGER_INC_CLIENT

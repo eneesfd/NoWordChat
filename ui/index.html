@@ -19,26 +19,43 @@
 
     .user-message {
       background-color: #e0f7fa;
-      /* Açık mavi */
       text-align: right;
     }
 
     .other-message {
       background-color: #f1f8e9;
-      /* Açık yeşil */
       text-align: left;
     }
   </style>
 </head>
 
 <body>
-  <div id="chat-container">
-  </div>
+  <div id="chat-container"></div>
 
   <input type="text" id="message-input" placeholder="Mesajınızı yazın...">
   <button id="send-button">Gönder</button>
 
   <script>
+    // Establish a WebSocket connection to the Drogon WebSocket endpoint
+    const ws = new WebSocket('ws://localhost:8080/chat');
+
+    ws.onopen = () => {
+      console.log('WebSocket bağlantısı kuruldu');
+    };
+
+    ws.onmessage = (event) => {
+      const message = event.data;
+      addMessage(message, 'other'); // Sunucudan gelen mesajı göster
+    };
+
+    ws.onerror = (error) => {
+      console.error('WebSocket Hatası: ', error);
+    };
+
+    ws.onclose = () => {
+      console.log('WebSocket bağlantısı kapandı');
+    };
+
     const chatContainer = document.getElementById('chat-container');
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
@@ -48,10 +65,7 @@
       if (message.trim() !== '') {
         addMessage(message, 'user'); // Kullanıcının kendi mesajı
         messageInput.value = '';
-        // Simüle edilmiş diğer kullanıcı mesajı (gerçek uygulamada Drogon'dan alınmalı)
-        setTimeout(() => {
-          addMessage("Merhaba, ben de buradayım!", 'other');
-        }, 1000); // 1 saniye sonra mesajı ekle
+        ws.send(message); // Mesajı WebSocket üzerinden sunucuya gönder
       }
     });
 
