@@ -10,6 +10,9 @@
 .vscode/
 *.code-workspace
 
+# Clion specific
+.idea/
+
 # CMake specific
 CMakeFiles/
 CMakeCache.txt
@@ -29,3 +32,4 @@ CTestTestfile.cmake.tmp
 build/
 bin/
 lib/
+cmake-build-debug/
